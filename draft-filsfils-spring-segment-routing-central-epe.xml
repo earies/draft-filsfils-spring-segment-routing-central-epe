@@ -11,7 +11,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 <rfc category="info"
-     docName="draft-filsfils-spring-segment-routing-central-epe-02"
+     docName="draft-filsfils-spring-segment-routing-central-epe-03"
      ipr="trust200902">
   <front>
     <title abbrev="Segment Routing Centralized EPE">Segment Routing
@@ -20,135 +20,93 @@
     <author fullname="Clarence Filsfils" initials="C." role="editor"
             surname="Filsfils">
       <organization>Cisco Systems, Inc.</organization>
-
       <address>
         <postal>
           <street/>
-
           <city>Brussels</city>
-
           <region/>
-
           <code/>
-
           <country>BE</country>
         </postal>
-
         <email>cfilsfil@cisco.com</email>
       </address>
     </author>
-
     <author fullname="Stefano Previdi" initials="S." role="editor"
             surname="Previdi">
       <organization>Cisco Systems, Inc.</organization>
-
       <address>
         <postal>
           <street>Via Del Serafico, 200</street>
-
           <city>Rome</city>
-
           <code>00142</code>
-
           <country>Italy</country>
         </postal>
-
         <email>sprevidi@cisco.com</email>
       </address>
     </author>
-
     <author fullname="Keyur Patel" initials="K." surname="Patel">
       <organization>Cisco Systems, Inc.</organization>
-
       <address>
         <postal>
           <street/>
-
           <city/>
-
           <code/>
-
           <country>US</country>
         </postal>
-
         <email>keyupate@cisco.com</email>
       </address>
     </author>
-
     <author fullname="Ebben Aries" initials="E." surname="Aries">
       <organization>Facebook</organization>
-
       <address>
         <postal>
-          <street/>
-
-          <city/>
-
-          <code/>
-
+          <street>1 Hacker Way</street>
+          <city>Menlo Park</city>
+          <region>CA</region>
+          <code>94025</code>
           <country>US</country>
         </postal>
-
         <email>exa@fb.com</email>
       </address>
     </author>
-
-    <author fullname="Steve Shaw " initials="S." surname="Shaw ">
+    <author fullname="Steve Shaw" initials="S." surname="Shaw">
       <organization>Facebook</organization>
-
       <address>
         <postal>
-          <street/>
-
-          <city/>
-
-          <code/>
-
+          <street>1 Hacker Way</street>
+          <city>Menlo Park</city>
+          <region>CA</region>
+          <code>94025</code>
           <country>US</country>
         </postal>
-
         <email>shaw@fb.com</email>
       </address>
     </author>
-
     <author fullname="Daniel Ginsburg" initials="D." surname="Ginsburg">
       <organization>Yandex</organization>
-
       <address>
         <postal>
           <street/>
-
           <city/>
-
           <code/>
-
           <country>RU</country>
         </postal>
-
         <email>dbg@yandex-team.ru</email>
       </address>
     </author>
-
     <author fullname="Dmitry Afanasiev" initials="D." surname="Afanasiev">
       <organization>Yandex</organization>
-
       <address>
         <postal>
           <street/>
-
           <city/>
-
           <code/>
-
           <country>RU</country>
         </postal>
-
         <email>fl0w@yandex-team.ru</email>
       </address>
     </author>
-
-    <date day="4" month="July" year="2014"/>
-
+    <date year="2015"/>
     <workgroup>Network Working Group</workgroup>
 
     <abstract>
@@ -187,11 +145,12 @@
           <t><xref target="BGPSEGMENTS"/> defines the different BGP Peering
           Segments and the semantic associated to them.</t>
 
-          <t><xref target="TOPOBGPLS"/> describes the automated allocation of
-          BGP Peering SID&rsquo;s by the EPE-enabled egress border router and
+          <t><xref target="TOPO"/> describes the automated allocation of
+          BGP Peering SID's by the EPE-enabled egress border router and
           the automated signaling of the external peering topology and the
-          related BGP Peering SID&rsquo;s to the collector [<xref
-          target="I-D.previdi-idr-bgpls-segment-routing-epe"/>.</t>
+          related BGP Peering SID's to the collector using BGP-LS <xref
+          target="I-D.previdi-idr-bgpls-segment-routing-epe"/> or BGP-LU
+          <xref target="I-D.gredler-idr-bgplu-epe"/>.</t>
 
           <t><xref target="EPECTRL"/> overviews the components of a
           centralized EPE controller. The definition of the EPE controller is
@@ -215,8 +174,9 @@
             <t>SR Architecture: <xref
             target="I-D.filsfils-spring-segment-routing"/>.</t>
 
-            <t>Distribution of External Topology and TE Information using BGP:
-            <xref target="I-D.previdi-idr-bgpls-segment-routing-epe"/>.</t>
+            <t>Distribution of External Topology and TE Information:
+            <xref target="I-D.previdi-idr-bgpls-segment-routing-epe"/>
+            and <xref target="I-D.gredler-idr-bgplu-epe"/>.</t>
           </list></t>
 
         <t>The SR instantiation in the MPLS dataplane is described in <xref
@@ -352,11 +312,13 @@ A   AS1   C---+            \|      |
       in the following section.</t>
     </section>
 
-    <section anchor="TOPOBGPLS"
-             title="Distribution of External Topology and TE Information using BGP-LS">
+    <section anchor="TOPO"
+             title="Distribution of External Topology and TE Information">
       <t>In ships-in-the-night mode with respect to the pre-existing iBGP
-      design, a BGPLS session is established between the EPE-enabled border
+      design, a BGP-LS or BGP-LU session is established between the EPE-enabled border
       router and the EPE controller.</t>
+
+      <section anchor="TOPOBGPLS" title="BGP-LS">
 
       <t>As a result of its local configuration and according to the behavior
       described in <xref target="I-D.previdi-idr-bgpls-segment-routing-epe"/>,
@@ -552,6 +514,14 @@ Label     Operation  Interface
       </section>
     </section>
 
+    <section anchor="TOPOBGPLU" title="BGP-LU">
+      <t>As described in <xref target="I-D.gredler-idr-bgplu-epe"/>,
+      the advertisement of BGP peering segments can also be achieved by
+      the use of BGP 3107 labeled routes.</t>
+    </section>
+
+    </section>
+
     <section anchor="EPECTRL" title="EPE Controller">
       <t>In this section, we provide a non-exhaustive set of inputs that an
       EPE controller would likely collect such as to perform the EPE policy
@@ -598,11 +568,12 @@ Label     Operation  Interface
       </section>
 
       <section anchor="EXTRATOPO" title="External Topology">
-        <t>Thanks to the collected BGP-LS routes described in the section 2
-        (BGPLS advertisements), the EPE controller is able to maintain an
-        accurate description of the egress topology of node C. Furthermore,
-        the EPE controller is able to associate BGP Peering SID&rsquo;s to the
-        various components of the external topology.</t>
+        <t>Thanks to the collected BGP-LS or BGP-LU routes described in section 3
+        (Distribution of External Topology and TE information), the EPE
+        controller is able to maintain an accurate description of the
+        egress topology of node C. Furthermore, the EPE controller is
+        able to associate BGP Peering SID's to the various
+        components of the external topology.</t>
       </section>
 
       <section anchor="SLA" title="SLA characteristics of each peer">
@@ -830,36 +801,23 @@ IP route L/8 set nhop T1
   <back>
     <references title="Normative References">
       <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?>
-
       <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.3107.xml"?>
-
       <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.6241.xml"?>
-
       <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5575.xml"?>
     </references>
-
     <references title="Informative References">
       <?rfc include="reference.I-D.filsfils-spring-segment-routing.xml"?>
-
       <?rfc include="reference.I-D.ietf-spring-problem-statement.xml"?>
-
       <?rfc include="reference.I-D.filsfils-spring-segment-routing-mpls.xml"?>
-
       <?rfc include="reference.I-D.ietf-isis-segment-routing-extensions.xml"?>
-
       <?rfc include="reference.I-D.ietf-isis-te-metric-extensions.xml"?>
-
       <?rfc include="reference.I-D.ietf-idr-ls-distribution.xml"?>
-
       <?rfc include="reference.I-D.ietf-ospf-segment-routing-extensions.xml"?>
-
       <?rfc include="reference.I-D.psenak-ospf-segment-routing-ospfv3-extension.xml"?>
-
       <?rfc include="reference.I-D.sivabalan-pce-segment-routing.xml"?>
-
       <?rfc include="reference.I-D.ietf-pce-pce-initiated-lsp.xml"?>
-
       <?rfc include="reference.I-D.previdi-idr-bgpls-segment-routing-epe.xml"?>
+      <?rfc include="reference.I-D.gredler-idr-bgplu-epe.xml"?>
     </references>
   </back>
 </rfc>
