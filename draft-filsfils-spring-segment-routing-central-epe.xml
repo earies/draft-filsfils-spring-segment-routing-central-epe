@@ -11,7 +11,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 <rfc category="info"
-     docName="draft-filsfils-spring-segment-routing-central-epe-03"
+     docName="draft-filsfils-spring-segment-routing-central-epe-04"
      ipr="trust200902">
   <front>
     <title abbrev="Segment Routing Centralized EPE">Segment Routing
@@ -163,7 +163,7 @@
           policy is outside the scope of this document.</t>
         </list></t>
 
-      <t>For editorial reason, the solution is described for IPv4. A later
+      <t>For editorial reasons, the solution is described for IPv4. A later
       section describes how the same solution is applicable to IPv6.</t>
 
       <section anchor="SRDOCS" title="Segment Routing Documents">
@@ -197,10 +197,10 @@
 
         <t>A centralized controller should be able to instruct an ingress PE
         or a content source within the domain to use a specific egress PE and
-        a specific external interface to reach a particular destination.</t>
+        a specific external interface/neighbor to reach a particular destination.</t>
 
         <t>We call this solution "EPE" for "Egress Peer Engineering". The
-        centralized controller is called the &ldquo;EPE Controller&rdquo;. The
+        centralized controller is called the "EPE Controller". The
         egress border router where the EPE traffic-steering functionality is
         implemented is called an EPE-enabled border router. The input policy
         programmed at an ingress border router or at a source host is called
@@ -290,7 +290,7 @@ A   AS1   C---+            \|      |
     </section>
 
     <section anchor="BGPSEGMENTS" title="BGP Peering Segments">
-      <t>AS defined in <xref target="I-D.filsfils-spring-segment-routing"/>,
+      <t>As defined in <xref target="I-D.filsfils-spring-segment-routing"/>,
       Segments are defined by a Egress Peer Engineering (EPE) capable node and
       corresponding to its attached peers. These segments are called BGP
       peering segments or BGP Peering SIDs. They enable the expression of
