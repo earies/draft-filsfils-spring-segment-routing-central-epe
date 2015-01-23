@@ -247,41 +247,41 @@ A   AS1   C---+            \|      |
         </figure>
 
         <t>IPv4 addressing:<list style="symbols">
-            <t>C&rsquo;s interface to D: 1.0.1.1/24, D&rsquo;s interface:
-            1.0.1.2/24</t>
+            <t>C's interface to D: 198.51.100.1/30, D's interface:
+            198.51.100.2/30</t>
 
-            <t>C&rsquo;s interface to E: 1.0.2.1/24, E&rsquo;s interface:
-            1.0.2.2/24</t>
+            <t>C's interface to E: 198.51.100.5/30, E's interface:
+            198.51.100.6/30</t>
 
-            <t>C&rsquo;s upper interface to F: 1.0.3.1/24, F&rsquo;s
-            interface: 1.0.3.2/24</t>
+            <t>C's upper interface to F: 198.51.100.9/30, F's
+            interface: 198.51.100.10/30</t>
 
-            <t>C&rsquo;s lower interface to F: 1.0.4.1/24, F&rsquo;s
-            interface: 1.0.4.2/24</t>
+            <t>C's lower interface to F: 198.51.100.13/30, F's
+            interface: 198.51.100.14/30</t>
 
             <t>Loopback of F used for eBGP multi-hop peering to C:
-            1.0.5.2/32</t>
+            192.0.2.2/32</t>
 
-            <t>C&rsquo;s loopback is 3.3.3.3/32 with SID 64</t>
+            <t>C's loopback is 203.0.113.3/32 with SID 64</t>
           </list></t>
 
-        <t>C&rsquo;s BGP peering:<list style="symbols">
-            <t>Single-hop eBGP peering with neighbor 1.0.1.2 (D)</t>
+        <t>C's BGP peering:<list style="symbols">
+            <t>Single-hop eBGP peering with neighbor 198.51.100.2 (D)</t>
 
-            <t>Single-hop eBGP peering with neighbor 1.0.2.2 (E)</t>
+            <t>Single-hop eBGP peering with neighbor 198.51.100.6 (E)</t>
 
-            <t>Multi-hop eBGP peering with F on ip address 1.0.5.2 (F)</t>
+            <t>Multi-hop eBGP peering with F on ip address 192.0.2.2 (F)</t>
           </list></t>
 
-        <t>C&rsquo;s resolution of the multi-hop eBGP session to F:<list
+        <t>C's resolution of the multi-hop eBGP session to F:<list
             style="symbols">
-            <t>Static route 1.0.5.2/32 via 1.0.3.2</t>
+            <t>Static route 192.0.2.2/32 via 198.51.100.10</t>
 
-            <t>Static route 1.0.5.2/32 via 1.0.4.2</t>
+            <t>Static route 192.0.2.2/32 via 198.51.100.14</t>
           </list></t>
 
         <t>C is configured with local policy that defines a BGP PeerSet as the
-        set of peers (1.0.2.2 and 1.0.5.2)</t>
+        set of peers (198.51.100.6 and 192.0.2.2)</t>
 
         <t>X is the EPE controller within AS1 domain.</t>
 
@@ -347,7 +347,7 @@ Label     Operation  Interface
 </artwork>
         </figure></t>
 
-      <t>C signals the related BGP-LS NLRI&rsquo;s to the EPE controller. Each
+      <t>C signals the related BGP-LS NLRI's to the EPE controller. Each
       such BGP-LS route is described in the following sub-sections according
       to the encoding details defined in
       draft-previdi-idr-bgpl-segment-routing-epe-00.</t>
@@ -355,12 +355,12 @@ Label     Operation  Interface
       <section anchor="PEERNODED"
                title="EPE Route advertising the Peer D and its PeerNode SID  ">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS2</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 1.0.1.1, 1.0.1.2</t>
+            address): 198.51.100.1, 198.51.100.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
@@ -371,12 +371,12 @@ Label     Operation  Interface
       <section anchor="PEERNODEE"
                title="EPE Route advertising the Peer E and its PeerNode SID   ">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 1.0.2.1, 1.0.2.2</t>
+            address): 198.51.100.5, 198.51.100.6</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
@@ -392,12 +392,12 @@ Label     Operation  Interface
       <section anchor="PEERNODEF"
                title="EPE Route advertising the Peer F and its PeerNode SID   ">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 3.3.3.3, 1.0.5.2</t>
+            address): 203.0.113.3, 192.0.2.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
@@ -410,12 +410,12 @@ Label     Operation  Interface
       <section anchor="PEERNODEFLINK1"
                title="EPE Route advertising a first PeerAdj to Peer F">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 1.0.3.1 , 1.0.3.2</t>
+            address): 198.51.100.9 , 198.51.100.10</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
@@ -429,12 +429,12 @@ Label     Operation  Interface
       <section anchor="PEERNODEFLINK2"
                title="EPE Route advertising a second PeerAdj to Peer F">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 1.0.4.1 , 1.0.4.2</t>
+            address): 198.51.100.13 , 198.51.100.14</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
@@ -449,7 +449,7 @@ Label     Operation  Interface
         <t>An EPE-enabled border router should allocate a FRR backup entry on
         a per BGP Peering SID basis:<list style="symbols">
             <t>PeerNode SID<list style="numbers">
-                <t>If multi-hop, backup via the remaining PeerADJ SID&rsquo;s
+                <t>If multi-hop, backup via the remaining PeerADJ SID's
                 to the same peer.</t>
 
                 <t>Else backup via local PeerNode SID to the same AS.</t>
@@ -460,7 +460,7 @@ Label     Operation  Interface
 
             <t>PeerAdj SID<list style="numbers">
                 <t>If to a multi-hop peer, backup via the remaining PeerADJ
-                SID&rsquo;s to the same peer.</t>
+                SID's to the same peer.</t>
 
                 <t>Else backup via PeerNode SID to the same AS.</t>
 
@@ -539,19 +539,19 @@ Label     Operation  Interface
 
         <t>In this case, C would advertise the following Internet routes to
         the EPE controller:<list style="symbols">
-            <t>NLRI &lt;L/8&gt;, nhop 1.0.1.2, AS Path {AS 2, 4}<list>
+            <t>NLRI &lt;L/8&gt;, nhop 198.51.100.2, AS Path {AS 2, 4}<list>
                 <t>X (i.e.: the EPE controller) knows that C receives a path
-                to L/8 via neighbor 1.0.1.2 of AS2.</t>
+                to L/8 via neighbor 198.51.100.2 of AS2.</t>
               </list></t>
 
-            <t>NLRI &lt;L/8&gt;, nhop 1.0.2.2, AS Path {AS 3, 4}<list>
-                <t>X knows that C receives a path to L/8 via neighbor 1.0.2.2
+            <t>NLRI &lt;L/8&gt;, nhop 198.51.100.6, AS Path {AS 3, 4}<list>
+                <t>X knows that C receives a path to L/8 via neighbor 198.51.100.6
                 of AS2.</t>
               </list></t>
 
-            <t>NLRI &lt;L/8&gt;, nhop 1.0.5.2, AS Path {AS 3, 4} <list>
+            <t>NLRI &lt;L/8&gt;, nhop 192.0.2.2, AS Path {AS 3, 4} <list>
                 <t>X knows that C has an eBGP path to L/8 via AS3 via neighbor
-                1.0.5.2</t>
+                192.0.2.2</t>
               </list></t>
           </list></t>
 
@@ -561,7 +561,7 @@ Label     Operation  Interface
 
       <section anchor="INTRATOPO" title="Intra-Domain Topology">
         <t>The EPE controller should collect the internal topology and the
-        related IGP SID&rsquo;s.</t>
+        related IGP SID's.</t>
 
         <t>This could be realized by collecting the IGP LSDB of each area or
         running a BGP-LS session with a node in each IGP area.</t>
@@ -621,14 +621,14 @@ Label     Operation  Interface
         <t>A few examples are provided hereafter:<list style="symbols">
             <t>Prefer egress PE C and peer AS AS2: {64, 1012}.</t>
 
-            <t>Prefer egress PE C and peer AS AS3 via ebgp peer 1.0.2.2: {64,
+            <t>Prefer egress PE C and peer AS AS3 via ebgp peer 198.51.100.6: {64,
             1022}.</t>
 
-            <t>Prefer egress PE C and peer AS AS3 via ebgp peer 1.0.5.2: {64,
+            <t>Prefer egress PE C and peer AS AS3 via ebgp peer 192.0.2.2: {64,
             1052}.</t>
 
-            <t>Prefer egress PE C and peer AS AS3 via interface 1.0.4.2 of
-            multi-hop ebgp peer 1.0.5.2: {64, 1042}.</t>
+            <t>Prefer egress PE C and peer AS AS3 via interface 198.51.100.14 of
+            multi-hop ebgp peer 192.0.2.2: {64, 1042}.</t>
 
             <t>Prefer egress PE C and any interface to any peer in the group
             1060: {64, 1060}.</t>
@@ -800,10 +800,10 @@ IP route L/8 set nhop T1
 
   <back>
     <references title="Normative References">
-      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?>
-      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.3107.xml"?>
-      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.6241.xml"?>
-      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5575.xml"?>
+      <?rfc include="reference.RFC.2119.xml"?>
+      <?rfc include="reference.RFC.3107.xml"?>
+      <?rfc include="reference.RFC.6241.xml"?>
+      <?rfc include="reference.RFC.5575.xml"?>
     </references>
     <references title="Informative References">
       <?rfc include="reference.I-D.filsfils-spring-segment-routing.xml"?>
