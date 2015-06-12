@@ -20,93 +20,135 @@
     <author fullname="Clarence Filsfils" initials="C." role="editor"
             surname="Filsfils">
       <organization>Cisco Systems, Inc.</organization>
+
       <address>
         <postal>
           <street/>
+
           <city>Brussels</city>
+
           <region/>
+
           <code/>
+
           <country>BE</country>
         </postal>
+
         <email>cfilsfil@cisco.com</email>
       </address>
     </author>
+
     <author fullname="Stefano Previdi" initials="S." role="editor"
             surname="Previdi">
       <organization>Cisco Systems, Inc.</organization>
+
       <address>
         <postal>
           <street>Via Del Serafico, 200</street>
+
           <city>Rome</city>
+
           <code>00142</code>
+
           <country>Italy</country>
         </postal>
+
         <email>sprevidi@cisco.com</email>
       </address>
     </author>
+
     <author fullname="Keyur Patel" initials="K." surname="Patel">
       <organization>Cisco Systems, Inc.</organization>
+
       <address>
         <postal>
           <street/>
+
           <city/>
+
           <code/>
+
           <country>US</country>
         </postal>
+
         <email>keyupate@cisco.com</email>
       </address>
     </author>
+
     <author fullname="Ebben Aries" initials="E." surname="Aries">
       <organization>Facebook</organization>
+
       <address>
         <postal>
-          <street>1 Hacker Way</street>
-          <city>Menlo Park</city>
-          <region>CA</region>
-          <code>94025</code>
+          <street/>
+
+          <city/>
+
+          <code/>
+
           <country>US</country>
         </postal>
+
         <email>exa@fb.com</email>
       </address>
     </author>
-    <author fullname="Steve Shaw" initials="S." surname="Shaw">
+
+    <author fullname="Steve Shaw " initials="S." surname="Shaw ">
       <organization>Facebook</organization>
+
       <address>
         <postal>
-          <street>1 Hacker Way</street>
-          <city>Menlo Park</city>
-          <region>CA</region>
-          <code>94025</code>
+          <street/>
+
+          <city/>
+
+          <code/>
+
           <country>US</country>
         </postal>
+
         <email>shaw@fb.com</email>
       </address>
     </author>
+
     <author fullname="Daniel Ginsburg" initials="D." surname="Ginsburg">
       <organization>Yandex</organization>
+
       <address>
         <postal>
           <street/>
+
           <city/>
+
           <code/>
+
           <country>RU</country>
         </postal>
+
         <email>dbg@yandex-team.ru</email>
       </address>
     </author>
+
     <author fullname="Dmitry Afanasiev" initials="D." surname="Afanasiev">
       <organization>Yandex</organization>
+
       <address>
         <postal>
           <street/>
+
           <city/>
+
           <code/>
+
           <country>RU</country>
         </postal>
+
         <email>fl0w@yandex-team.ru</email>
       </address>
     </author>
+
     <date year="2015"/>
+
     <workgroup>Network Working Group</workgroup>
 
     <abstract>
@@ -139,18 +181,17 @@
   <middle>
     <section anchor="INTRO" title="Introduction">
       <t>The document is structured as follows: <list style="symbols">
-          <t><xref target="INTRO"/> reminds the EPE problem statement and
+          <t><xref target="INTRO"/> states the EPE problem statement and
           provides the key references.</t>
 
           <t><xref target="BGPSEGMENTS"/> defines the different BGP Peering
           Segments and the semantic associated to them.</t>
 
-          <t><xref target="TOPO"/> describes the automated allocation of
-          BGP Peering SID's by the EPE-enabled egress border router and
+          <t><xref target="TOPOBGPLS"/> describes the automated allocation of
+          BGP Peering SID&rsquo;s by the EPE-enabled egress border router and
           the automated signaling of the external peering topology and the
-          related BGP Peering SID's to the collector using BGP-LS <xref
-          target="I-D.previdi-idr-bgpls-segment-routing-epe"/> or BGP-LU
-          <xref target="I-D.gredler-idr-bgplu-epe"/>.</t>
+          related BGP Peering SID&rsquo;s to the collector [<xref
+          target="I-D.previdi-idr-bgpls-segment-routing-epe"/>.</t>
 
           <t><xref target="EPECTRL"/> overviews the components of a
           centralized EPE controller. The definition of the EPE controller is
@@ -163,7 +204,7 @@
           policy is outside the scope of this document.</t>
         </list></t>
 
-      <t>For editorial reasons, the solution is described for IPv4. A later
+      <t>For editorial reason, the solution is described for IPv4. A later
       section describes how the same solution is applicable to IPv6.</t>
 
       <section anchor="SRDOCS" title="Segment Routing Documents">
@@ -172,23 +213,22 @@
             target="I-D.ietf-spring-problem-statement"/>.</t>
 
             <t>SR Architecture: <xref
-            target="I-D.filsfils-spring-segment-routing"/>.</t>
+            target="I-D.ietf-spring-segment-routing"/>.</t>
 
-            <t>Distribution of External Topology and TE Information:
-            <xref target="I-D.previdi-idr-bgpls-segment-routing-epe"/>
-            and <xref target="I-D.gredler-idr-bgplu-epe"/>.</t>
+            <t>Distribution of External Topology and TE Information using BGP:
+            <xref target="I-D.previdi-idr-bgpls-segment-routing-epe"/>.</t>
           </list></t>
 
         <t>The SR instantiation in the MPLS dataplane is described in <xref
-        target="I-D.filsfils-spring-segment-routing-mpls"/>.</t>
+        target="I-D.ietf-spring-segment-routing-mpls"/>.</t>
 
         <t>The SR IGP protocol extensions are defined in <xref
         target="I-D.ietf-isis-segment-routing-extensions"/>, <xref
         target="I-D.ietf-ospf-segment-routing-extensions"/> and <xref
-        target="I-D.psenak-ospf-segment-routing-ospfv3-extension"/>.</t>
+        target="I-D.ietf-ospf-ospfv3-segment-routing-extensions"/>.</t>
 
         <t>The Segment Routing PCE protocol extensions are defined in <xref
-        target="I-D.sivabalan-pce-segment-routing"/>.</t>
+        target="I-D.ietf-pce-segment-routing"/>.</t>
       </section>
 
       <section anchor="PROBSTATE" title="Problem Statement">
@@ -197,10 +237,10 @@
 
         <t>A centralized controller should be able to instruct an ingress PE
         or a content source within the domain to use a specific egress PE and
-        a specific external interface/neighbor to reach a particular destination.</t>
+        a specific external interface to reach a particular destination.</t>
 
         <t>We call this solution "EPE" for "Egress Peer Engineering". The
-        centralized controller is called the "EPE Controller". The
+        centralized controller is called the &ldquo;EPE Controller&rdquo;. The
         egress border router where the EPE traffic-steering functionality is
         implemented is called an EPE-enabled border router. The input policy
         programmed at an ingress border router or at a source host is called
@@ -210,7 +250,7 @@
         document are listed here below:<list style="symbols">
             <t>The solution MUST apply to the Internet use-case where the
             Internet routes are assumed to use IPv4 unlabeled or IPv6
-            unlabeled. It is not required to place the internet routes in a
+            unlabeled. It is not required to place the Internet routes in a
             VRF and allocate labels on a per route, or on a per-path
             basis.</t>
 
@@ -219,7 +259,7 @@
             and MUST be able to support all of them.</t>
 
             <t>The solution SHOULD minimize the need for new BGP capabilities
-            at the ingress PE's.</t>
+            at the ingress PEs.</t>
 
             <t>The solution MUST accommodate an ingress EPE policy at an
             ingress PE or directly at an source host within the domain.</t>
@@ -247,41 +287,41 @@ A   AS1   C---+            \|      |
         </figure>
 
         <t>IPv4 addressing:<list style="symbols">
-            <t>C's interface to D: 198.51.100.1/30, D's interface:
-            198.51.100.2/30</t>
+            <t>C&rsquo;s interface to D: 1.0.1.1/24, D&rsquo;s interface:
+            1.0.1.2/24</t>
 
-            <t>C's interface to E: 198.51.100.5/30, E's interface:
-            198.51.100.6/30</t>
+            <t>C&rsquo;s interface to E: 1.0.2.1/24, E&rsquo;s interface:
+            1.0.2.2/24</t>
 
-            <t>C's upper interface to F: 198.51.100.9/30, F's
-            interface: 198.51.100.10/30</t>
+            <t>C&rsquo;s upper interface to F: 1.0.3.1/24, F&rsquo;s
+            interface: 1.0.3.2/24</t>
 
-            <t>C's lower interface to F: 198.51.100.13/30, F's
-            interface: 198.51.100.14/30</t>
+            <t>C&rsquo;s lower interface to F: 1.0.4.1/24, F&rsquo;s
+            interface: 1.0.4.2/24</t>
 
             <t>Loopback of F used for eBGP multi-hop peering to C:
-            192.0.2.2/32</t>
+            1.0.5.2/32</t>
 
-            <t>C's loopback is 203.0.113.3/32 with SID 64</t>
+            <t>C&rsquo;s loopback is 3.3.3.3/32 with SID 64</t>
           </list></t>
 
-        <t>C's BGP peering:<list style="symbols">
-            <t>Single-hop eBGP peering with neighbor 198.51.100.2 (D)</t>
+        <t>C&rsquo;s BGP peering:<list style="symbols">
+            <t>Single-hop eBGP peering with neighbor 1.0.1.2 (D)</t>
 
-            <t>Single-hop eBGP peering with neighbor 198.51.100.6 (E)</t>
+            <t>Single-hop eBGP peering with neighbor 1.0.2.2 (E)</t>
 
-            <t>Multi-hop eBGP peering with F on ip address 192.0.2.2 (F)</t>
+            <t>Multi-hop eBGP peering with F on IP address 1.0.5.2 (F)</t>
           </list></t>
 
-        <t>C's resolution of the multi-hop eBGP session to F:<list
+        <t>C&rsquo;s resolution of the multi-hop eBGP session to F:<list
             style="symbols">
-            <t>Static route 192.0.2.2/32 via 198.51.100.10</t>
+            <t>Static route 1.0.5.2/32 via 1.0.3.2</t>
 
-            <t>Static route 192.0.2.2/32 via 198.51.100.14</t>
+            <t>Static route 1.0.5.2/32 via 1.0.4.2</t>
           </list></t>
 
         <t>C is configured with local policy that defines a BGP PeerSet as the
-        set of peers (198.51.100.6 and 192.0.2.2)</t>
+        set of peers (1.0.2.2 and 1.0.5.2)</t>
 
         <t>X is the EPE controller within AS1 domain.</t>
 
@@ -290,10 +330,10 @@ A   AS1   C---+            \|      |
     </section>
 
     <section anchor="BGPSEGMENTS" title="BGP Peering Segments">
-      <t>As defined in <xref target="I-D.filsfils-spring-segment-routing"/>,
-      Segments are defined by a Egress Peer Engineering (EPE) capable node and
-      corresponding to its attached peers. These segments are called BGP
-      peering segments or BGP Peering SIDs. They enable the expression of
+      <t>AS defined in <xref target="I-D.ietf-spring-segment-routing"/>,
+      certain segments are defined by an Egress Peer Engineering (EPE) capable
+      node and corresponding to its attached peers. These segments are called
+      BGP peering segments or BGP Peering SIDs. They enable the expression of
       source-routed inter-domain paths.</t>
 
       <t>An ingress border router of an AS may compose a list of segments to
@@ -304,26 +344,24 @@ A   AS1   C---+            \|      |
       BGP Peering Segment for the chosen egress PE peer or peering
       interface.</t>
 
-      <t><xref target="I-D.filsfils-spring-segment-routing"/> defines three
-      types of BGP peering segments/SID's: PeerNodeSID, PeerAdjSID and
+      <t><xref target="I-D.ietf-spring-segment-routing"/> defines three types
+      of BGP peering segments/SID's: PeerNodeSID, PeerAdjSID and
       PeerSetSID.</t>
 
       <t>The BGP extensions to signal these BGP peering segments are outlined
       in the following section.</t>
     </section>
 
-    <section anchor="TOPO"
-             title="Distribution of External Topology and TE Information">
+    <section anchor="TOPOBGPLS"
+             title="Distribution of External Topology and TE Information using BGP-LS">
       <t>In ships-in-the-night mode with respect to the pre-existing iBGP
-      design, a BGP-LS or BGP-LU session is established between the EPE-enabled border
+      design, a BGP-LS session is established between the EPE-enabled border
       router and the EPE controller.</t>
-
-      <section anchor="TOPOBGPLS" title="BGP-LS">
 
       <t>As a result of its local configuration and according to the behavior
       described in <xref target="I-D.previdi-idr-bgpls-segment-routing-epe"/>,
       node C allocates the following BGP Peering Segments (<xref
-      target="I-D.filsfils-spring-segment-routing"/>):<list style="symbols">
+      target="I-D.ietf-spring-segment-routing"/>):<list style="symbols">
           <t>A PeerNode segment for each of its defined peer (D, E and F).</t>
 
           <t>A PeerAdj segment for each recursing interface to a multi-hop
@@ -342,45 +380,45 @@ Label     Operation  Interface
 1022          POP    link to E
 1032          POP    upper link to F
 1042          POP    lower link to F
-1052          POP    loadbalance on any link to F
-1060          POP    loadbalance on any link to E or to F
+1052          POP    load balance on any link to F
+1060          POP    load balance on any link to E or to F
 </artwork>
         </figure></t>
 
-      <t>C signals the related BGP-LS NLRI's to the EPE controller. Each
-      such BGP-LS route is described in the following sub-sections according
-      to the encoding details defined in
-      draft-previdi-idr-bgpl-segment-routing-epe-00.</t>
+      <t>C signals the related BGP-LS NLRI&rsquo;s to the EPE controller. Each
+      such BGP-LS route is described in the following subsections according to
+      the encoding details defined in <xref
+      target="I-D.previdi-idr-bgpls-segment-routing-epe"/>.</t>
 
       <section anchor="PEERNODED"
                title="EPE Route advertising the Peer D and its PeerNode SID  ">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS2</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 198.51.100.1, 198.51.100.2</t>
+            address): 1.0.1.1, 1.0.1.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
-            <t>Adj-SID: 1012</t>
+            <t>PeerNode-SID: 1012</t>
           </list></t>
       </section>
 
       <section anchor="PEERNODEE"
                title="EPE Route advertising the Peer E and its PeerNode SID   ">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 198.51.100.5, 198.51.100.6</t>
+            address): 1.0.2.1, 1.0.2.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
-            <t>Adj-SID: 1022</t>
+            <t>PeerNode-SID: 1022</t>
 
             <t>PeerSetSID: 1060</t>
 
@@ -392,16 +430,16 @@ Label     Operation  Interface
       <section anchor="PEERNODEF"
                title="EPE Route advertising the Peer F and its PeerNode SID   ">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 203.0.113.3, 192.0.2.2</t>
+            address): 3.3.3.3, 1.0.5.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
-            <t>Adj-SID: 1052</t>
+            <t>PeerNode-SID: 1052</t>
 
             <t>PeerSetSID: 1060</t>
           </list></t>
@@ -410,16 +448,16 @@ Label     Operation  Interface
       <section anchor="PEERNODEFLINK1"
                title="EPE Route advertising a first PeerAdj to Peer F">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 198.51.100.9 , 198.51.100.10</t>
+            address): 1.0.3.1 , 1.0.3.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
-            <t>Adj-SID: 1032</t>
+            <t>PeerAdj-SID: 1032</t>
 
             <t>LinkAttributes: see section 3.3.2 of <xref
             target="I-D.ietf-idr-ls-distribution"/></t>
@@ -429,16 +467,16 @@ Label     Operation  Interface
       <section anchor="PEERNODEFLINK2"
                title="EPE Route advertising a second PeerAdj to Peer F">
         <t>Descriptors: <list style="symbols">
-            <t>Node Descriptors (router-ID, ASN): 203.0.113.3 , AS1</t>
+            <t>Node Descriptors (router-ID, ASN): 3.3.3.3 , AS1</t>
 
             <t>Peer Descriptors (peer ASN): AS3</t>
 
             <t>Link Descriptors (IPv4 interface address, neighbor IPv4
-            address): 198.51.100.13 , 198.51.100.14</t>
+            address): 1.0.4.1 , 1.0.4.2</t>
           </list></t>
 
         <t>Attributes: <list style="symbols">
-            <t>Adj-SID: 1042</t>
+            <t>PeerAdj-SID: 1042</t>
 
             <t>LinkAttributes: see section 3.3.2 of <xref
             target="I-D.ietf-idr-ls-distribution"/></t>
@@ -449,36 +487,35 @@ Label     Operation  Interface
         <t>An EPE-enabled border router should allocate a FRR backup entry on
         a per BGP Peering SID basis:<list style="symbols">
             <t>PeerNode SID<list style="numbers">
-                <t>If multi-hop, backup via the remaining PeerADJ SID's
-                to the same peer.</t>
+                <t>If multi-hop, backup via the remaining PeerADJ SIDs to the
+                same peer.</t>
 
                 <t>Else backup via local PeerNode SID to the same AS.</t>
 
-                <t>Else pop the PeerNode SID and IP lookup (with potential BGP
-                PIC fall-back).</t>
+                <t>Else pop the PeerNode SID and perform an IP lookup (with
+                potential BGP PIC fall-back).</t>
               </list></t>
 
             <t>PeerAdj SID<list style="numbers">
                 <t>If to a multi-hop peer, backup via the remaining PeerADJ
-                SID's to the same peer.</t>
+                SIDs to the same peer.</t>
 
                 <t>Else backup via PeerNode SID to the same AS.</t>
 
-                <t>Else pop the PeerNode SID and IP lookup (with potential BGP
-                PIC fall-back).</t>
+                <t>Else pop the PeerNode SID and perform an IP lookup (with
+                potential BGP PIC fall-back).</t>
               </list></t>
 
             <t>PeerSet SID<list style="numbers">
-                <t>Backup via remaining PeerNode SID in the same PeerSet.</t>
+                <t>Backup via remaining PeerNode SIDs in the same PeerSet.</t>
 
-                <t>Else pop the PeerSet SID and IP lookup (with potential BGP
+                <t>Else pop the PeerNode SID and IP lookup (with potential BGP
                 PIC fall-back).</t>
               </list></t>
           </list></t>
 
         <t>We illustrate the different types of possible backups using the
-        reference diagram and considering the Peering SID's allocated by
-        C.</t>
+        reference diagram and considering the Peering SIDs allocated by C.</t>
 
         <t>PeerNode SID 1052, allocated by C for peer F:<list style="symbols">
             <t>Upon the failure of the upper connected link CF, C can reroute
@@ -504,22 +541,14 @@ Label     Operation  Interface
           </list></t>
 
         <t>For specific business reasons, the operator might not want the
-        default FRR behavior applied to a PeerNode SID or any of its depending
+        default FRR behavior applied to a PeerNode SID or any of its dependent
         PeerADJ SID.</t>
 
         <t>The operator should be able to associate a specific backup PeerNode
-        SID for a PeerNode SID: e.g. 1022 (E) must be backed up by 1012 (D)
-        which over-rules the default behavior which would have preferred F as
-        a backup for E.</t>
+        SID for a PeerNode SID: e.g., 1022 (E) must be backed up by 1012 (D)
+        which overrules the default behavior which would have preferred F as a
+        backup for E.</t>
       </section>
-    </section>
-
-    <section anchor="TOPOBGPLU" title="BGP-LU">
-      <t>As described in <xref target="I-D.gredler-idr-bgplu-epe"/>,
-      the advertisement of BGP peering segments can also be achieved by
-      the use of BGP 3107 labeled routes.</t>
-    </section>
-
     </section>
 
     <section anchor="EPECTRL" title="EPE Controller">
@@ -534,56 +563,56 @@ Label     Operation  Interface
         the engineered peers.</t>
 
         <t>This could be realized by setting an iBGP session with the
-        EPE-enabled border router, with &ldquo;add-path all&rdquo; and
+        EPE-enabled border router, with &ldquo;add-path all&rdquo; and the
         original next-hop preserved.</t>
 
         <t>In this case, C would advertise the following Internet routes to
         the EPE controller:<list style="symbols">
-            <t>NLRI &lt;L/8&gt;, nhop 198.51.100.2, AS Path {AS 2, 4}<list>
+            <t>NLRI &lt;L/8&gt;, nhop 1.0.1.2, AS Path {AS 2, 4}<list>
                 <t>X (i.e.: the EPE controller) knows that C receives a path
-                to L/8 via neighbor 198.51.100.2 of AS2.</t>
+                to L/8 via neighbor 1.0.1.2 of AS2.</t>
               </list></t>
 
-            <t>NLRI &lt;L/8&gt;, nhop 198.51.100.6, AS Path {AS 3, 4}<list>
-                <t>X knows that C receives a path to L/8 via neighbor 198.51.100.6
+            <t>NLRI &lt;L/8&gt;, nhop 1.0.2.2, AS Path {AS 3, 4}<list>
+                <t>X knows that C receives a path to L/8 via neighbor 1.0.2.2
                 of AS2.</t>
               </list></t>
 
-            <t>NLRI &lt;L/8&gt;, nhop 192.0.2.2, AS Path {AS 3, 4} <list>
+            <t>NLRI &lt;L/8&gt;, nhop 1.0.5.2, AS Path {AS 3, 4} <list>
                 <t>X knows that C has an eBGP path to L/8 via AS3 via neighbor
-                192.0.2.2</t>
+                1.0.5.2</t>
               </list></t>
           </list></t>
 
-        <t>An alternative option consists in Adj-RIB-In BMP from EPE-enabled
-        border router to the EPE collector.</t>
+        <t>An alternative option would be for an EPE collector to use BGP
+        Monitoring Protocol (BMP) to track the Adj-RIB-In of EPE-enabled
+        border routers.</t>
       </section>
 
       <section anchor="INTRATOPO" title="Intra-Domain Topology">
         <t>The EPE controller should collect the internal topology and the
-        related IGP SID's.</t>
+        related IGP SIDs.</t>
 
         <t>This could be realized by collecting the IGP LSDB of each area or
         running a BGP-LS session with a node in each IGP area.</t>
       </section>
 
       <section anchor="EXTRATOPO" title="External Topology">
-        <t>Thanks to the collected BGP-LS or BGP-LU routes described in section 3
-        (Distribution of External Topology and TE information), the EPE
-        controller is able to maintain an accurate description of the
-        egress topology of node C. Furthermore, the EPE controller is
-        able to associate BGP Peering SID's to the various
-        components of the external topology.</t>
+        <t>Thanks to the collected BGP-LS routes described in the section 2
+        (BGP-LS advertisements), the EPE controller is able to maintain an
+        accurate description of the egress topology of node C. Furthermore,
+        the EPE controller is able to associate BGP Peering SIDs to the
+        various components of the external topology.</t>
       </section>
 
       <section anchor="SLA" title="SLA characteristics of each peer">
         <t>The EPE controller might collect SLA characteristics across peers.
-        This requires an EPE solution as the SL A probes need to be steered
-        via non-best-path peers.</t>
+        This requires an EPE solution as the SLA probes need to be steered via
+        non-best-path peers.</t>
 
-        <t>Uni-directional SLA monitoring of the desired path is likely
+        <t>Unidirectional SLA monitoring of the desired path is likely
         required. This might be possible when the application is controlled at
-        the source and the receiver side. Uni-directional monitoring
+        the source and the receiver side. Unidirectional monitoring
         dissociates the SLA characteristic of the return path (which cannot
         usually be controlled) from the forward path (the one of interest for
         pushing content from a source to a consumer and the one which can be
@@ -591,7 +620,7 @@ Label     Operation  Interface
 
         <t>Alternatively, Extended Metrics, as defined in <xref
         target="I-D.ietf-isis-te-metric-extensions"/> could also be advertised
-        using new bgpls attributes.</t>
+        using new BGP-LS attributes.</t>
       </section>
 
       <section anchor="MATRIX" title="Traffic Matrix">
@@ -600,7 +629,7 @@ Label     Operation  Interface
 
         <t>An alternative option consists in collecting the link utilization
         statistics of each of the internal and external links, also available
-        in current definition of <xref
+        in the current definition of <xref
         target="I-D.ietf-idr-ls-distribution"/>.</t>
       </section>
 
@@ -609,7 +638,7 @@ Label     Operation  Interface
       </section>
 
       <section anchor="EPEPOLICY" title="EPE Policy">
-        <t>On the basis of all these inputs (and likely other), the EPE
+        <t>On the basis of all these inputs (and likely others), the EPE
         Controller decides to steer some demands away from their best BGP
         path.</t>
 
@@ -621,14 +650,14 @@ Label     Operation  Interface
         <t>A few examples are provided hereafter:<list style="symbols">
             <t>Prefer egress PE C and peer AS AS2: {64, 1012}.</t>
 
-            <t>Prefer egress PE C and peer AS AS3 via ebgp peer 198.51.100.6: {64,
+            <t>Prefer egress PE C and peer AS AS3 via eBGP peer 1.0.2.2: {64,
             1022}.</t>
 
-            <t>Prefer egress PE C and peer AS AS3 via ebgp peer 192.0.2.2: {64,
+            <t>Prefer egress PE C and peer AS AS3 via eBGP peer 1.0.5.2: {64,
             1052}.</t>
 
-            <t>Prefer egress PE C and peer AS AS3 via interface 198.51.100.14 of
-            multi-hop ebgp peer 192.0.2.2: {64, 1042}.</t>
+            <t>Prefer egress PE C and peer AS AS3 via interface 1.0.4.2 of
+            multi-hop eBGP peer 1.0.5.2: {64, 1042}.</t>
 
             <t>Prefer egress PE C and any interface to any peer in the group
             1060: {64, 1060}.</t>
@@ -636,7 +665,7 @@ Label     Operation  Interface
 
         <t>Note that the first SID could be replaced by a list of segments.
         This is useful when an explicit path within the domain is required for
-        traffic-engineering purpose. For example, if the Prefix SID of node B
+        traffic-engineering purposes. For example, if the Prefix SID of node B
         is 60 and the EPE controller would like to steer the traffic from A to
         C via B then through the external link to peer D then the segment list
         would be {60, 64, 1012}.</t>
@@ -662,12 +691,12 @@ Label     Operation  Interface
         SR traffic engineering tunnel T1 and a steering-policy S1 which causes
         a certain class of traffic to be mapped on the tunnel T1.</t>
 
-        <t>The tunnel T1 would be configured to push the require segment
+        <t>The tunnel T1 would be configured to push the required segment
         list.</t>
 
         <t>The tunnel and the steering policy could be configured via PCEP
-        according to <xref target="I-D.sivabalan-pce-segment-routing"/> and
-        <xref target="I-D.ietf-pce-pce-initiated-lsp"/> or via Netconf (<xref
+        according to <xref target="I-D.ietf-pce-segment-routing"/> and <xref
+        target="I-D.ietf-pce-pce-initiated-lsp"/> or via Netconf (<xref
         target="RFC6241"/>).</t>
 
         <t>Example: at A <figure suppress-title="true">
@@ -678,23 +707,23 @@ IP route L/8 set nhop T1
       </section>
 
       <section anchor="ATROUTER3107"
-               title="At a Router &ndash; BGP3107 policy route">
-        <t>The EPE Controller could build a BGP3107 (<xref target="RFC3107"/>)
+               title="At a Router &ndash; RFC3107 policy route">
+        <t>The EPE Controller could build a RFC3107 (<xref target="RFC3107"/>)
         route (from scratch) and send it to the ingress router:<list
             style="symbols">
-            <t>NLRI: the destination prefix to engineer: e.g. L/8.</t>
+            <t>NLRI: the destination prefix to engineer: e.g., L/8.</t>
 
             <t>Next-Hop: the selected egress border router: C.</t>
 
             <t>Label: the selected egress peer: 1042.</t>
 
-            <t>AS path: reflecting the valid AS path of the selected.</t>
+            <t>AS path: reflecting the selected valid AS path.</t>
 
-            <t>Some BGP policy to ensure it be selected as best by the ingress
-            router.</t>
+            <t>Some BGP policy to ensure it will be selected as best by the
+            ingress router.</t>
           </list></t>
 
-        <t>This BGP3107 policy route &ldquo;overwrites&rdquo; an equivalent or
+        <t>This RFC3107 policy route &ldquo;overwrites&rdquo; an equivalent or
         less-specific &ldquo;best path&rdquo;. As the best-path is changed,
         this EPE input policy option influences the path propagated to the
         upstream peer/customers.</t>
@@ -704,7 +733,7 @@ IP route L/8 set nhop T1
                title="At a Router &ndash; VPN policy route">
         <t>The EPE Controller could build a VPNv4 route (from scratch) and
         send it to the ingress router:<list style="symbols">
-            <t>NLRI: the destination prefix to engineer: e.g. L/8.</t>
+            <t>NLRI: the destination prefix to engineer: e.g., L/8.</t>
 
             <t>Next-Hop: the selected egress border router: C.</t>
 
@@ -713,21 +742,21 @@ IP route L/8 set nhop T1
             <t>Route-Target: selecting the appropriate VRF at the ingress
             router.</t>
 
-            <t>AS path: reflecting the valid AS path of the selected.</t>
+            <t>AS path: reflecting the selected valid AS path.</t>
 
-            <t>Some BGP policy to ensure it be selected as best by the ingress
-            router in the related VRF.</t>
+            <t>Some BGP policy to ensure it will be selected as best by the
+            ingress router in the related VRF.</t>
           </list></t>
 
-        <t>The related VRF must be pre-configured. A VRF fall-back into main
-        FIB might be beneficial to avoid replicating all the
-        &ldquo;normal&rdquo; internet paths in each VRF.</t>
+        <t>The related VRF must be preconfigured. A VRF fallback to the main
+        FIB might be beneficial to avoid replicating all the "normal" Internet
+        paths in each VRF.</t>
       </section>
 
       <section anchor="ATROUTERFLOWSPEC"
                title="At a Router &ndash; Flowspec route">
-        <t>EPE Controller builds a FlowSpec route and sends it to the ingress
-        router to engineer:<list style="symbols">
+        <t>An EPE Controller builds a FlowSpec route and sends it to the
+        ingress router to engineer:<list style="symbols">
             <t>Dissemination of Flow Specification Rules (<xref
             target="RFC5575"/>.</t>
 
@@ -756,19 +785,19 @@ IP route L/8 set nhop T1
     </section>
 
     <section anchor="BENEFITS" title="Benefits">
-      <t>The EPE solutions described in this document has the following
+      <t>The EPE solutions described in this document have the following
       benefits:<list style="symbols">
           <t>No assumption on the iBGP design with AS1.</t>
 
-          <t>Next-Hop-Self on the internet routes propagated to the ingress
+          <t>Next-Hop-Self on the Internet routes propagated to the ingress
           border routers is possible. This is a common design rule to minimize
           the number of IGP routes and to avoid importing external churn into
-          the internal domain.</t>
+          the internal routing domain.</t>
 
           <t>Consistent support for traffic-engineering within the domain and
           at the external edge of the domain.</t>
 
-          <t>Support host and ingress border router EPE policy
+          <t>Support both host and ingress border router EPE policy
           programming.</t>
 
           <t>EPE functionality is only required on the EPE-enabled egress
@@ -777,12 +806,13 @@ IP route L/8 set nhop T1
           functionality.</t>
 
           <t>Ability to deploy the same input policy across hosts connected to
-          different routers (global property of the IGP prefix SID).</t>
+          different routers (avail the global property of IGP prefix
+          SIDs).</t>
         </list></t>
     </section>
 
     <section anchor="IANA" title="IANA Considerations">
-      <t>TBD</t>
+      <t>This document does not request any IANA allocations.</t>
     </section>
 
     <section anchor="Manageability" title="Manageability Considerations">
@@ -794,30 +824,44 @@ IP route L/8 set nhop T1
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
-      <t>TBD</t>
+      <t>The authors would like to thank Acee Lindem for his comments and
+      contributiuon.</t>
     </section>
   </middle>
 
   <back>
     <references title="Normative References">
-      <?rfc include="reference.RFC.2119.xml"?>
-      <?rfc include="reference.RFC.3107.xml"?>
-      <?rfc include="reference.RFC.6241.xml"?>
-      <?rfc include="reference.RFC.5575.xml"?>
+      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?>
+
+      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.3107.xml"?>
+
+      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.6241.xml"?>
+
+      <?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5575.xml"?>
     </references>
+
     <references title="Informative References">
-      <?rfc include="reference.I-D.filsfils-spring-segment-routing.xml"?>
+      <?rfc include="reference.I-D.ietf-spring-segment-routing.xml"?>
+
       <?rfc include="reference.I-D.ietf-spring-problem-statement.xml"?>
-      <?rfc include="reference.I-D.filsfils-spring-segment-routing-mpls.xml"?>
+
+      <?rfc include="reference.I-D.ietf-spring-segment-routing-mpls.xml"?>
+
       <?rfc include="reference.I-D.ietf-isis-segment-routing-extensions.xml"?>
+
       <?rfc include="reference.I-D.ietf-isis-te-metric-extensions.xml"?>
+
       <?rfc include="reference.I-D.ietf-idr-ls-distribution.xml"?>
+
       <?rfc include="reference.I-D.ietf-ospf-segment-routing-extensions.xml"?>
-      <?rfc include="reference.I-D.psenak-ospf-segment-routing-ospfv3-extension.xml"?>
-      <?rfc include="reference.I-D.sivabalan-pce-segment-routing.xml"?>
+
+      <?rfc include="reference.I-D.ietf-ospf-ospfv3-segment-routing-extensions.xml"?>
+
+      <?rfc include="reference.I-D.ietf-pce-segment-routing.xml"?>
+
       <?rfc include="reference.I-D.ietf-pce-pce-initiated-lsp.xml"?>
+
       <?rfc include="reference.I-D.previdi-idr-bgpls-segment-routing-epe.xml"?>
-      <?rfc include="reference.I-D.gredler-idr-bgplu-epe.xml"?>
     </references>
   </back>
 </rfc>
